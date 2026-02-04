@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inferred Intent Dashboard</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            background: #f8fafc; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 40px; 
+            color: #1e293b;
+        }
+        h1 { margin-bottom: 20px; font-weight: 700; }
+        #controls { margin-bottom: 25px; }
+        .btn { 
+            padding: 10px 24px; 
+            border-radius: 25px; 
+            border: 1px solid #e2e8f0; 
+            cursor: pointer; 
+            background: white; 
+            margin: 0 5px; 
+            transition: all 0.2s ease;
+            font-weight: 500;
+            color: #64748b;
+        }
+        .btn:hover { background: #f1f5f9; }
+        .btn.active { 
+            background: #6366f1; 
+            color: white; 
+            border-color: #6366f1; 
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+        #viz { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
+        }
+        .tooltip { 
+            position: absolute; 
+            padding: 8px 12px; 
+            background: #0f172a; 
+            color: white; 
+            border-radius: 6px; 
+            visibility: hidden; 
+            pointer-events: none; 
+            font-size: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 10;
+        }
+        .axis-label { font-size: 12px; fill: #94a3b8; }
+        .chart-title-label { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+            font-weight: 700; 
+            fill: #64748b; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Travel Intent Analytics</h1>
+    
+    <div id="controls">
+        <button id="btn-comp" class="btn active">Planning Complexity</button>
+        <button id="btn-prep" class="btn">Preparation Days</button>
+    </div>
+
+    <div id="viz">
+        <div id="tooltip" class="tooltip"></div>
+    </div>
+
+    <script>
+        const margin = {top: 40, right: 160, bottom: 70, left: 70};
+        const width = 850 - margin.left - margin.right;
+        const height = 500 - margin.top - margin.bottom;
+
+        const svg = d3.select("#viz").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const tooltip = d3.select("#tooltip");
+
+        d3.json("travel_data_complete.json").then(rawData => {
+            
+            const priorities = ["Activities", "Accommodation", "Transport", "Dining"];
+            const rolled = d3.rollup(rawData, v => ({
+                avgComplexity: d3.mean(v, d => d.complexity),
+                avgPrep: d3.mean(v, d => d.prepDays),
+                dist: Object.fromEntries(priorities.map(p => [p, (v.filter(d => d.priority === p).length / v.length)]))
+            }), d => d.purpose);
+
+            const data = Array.from(rolled, ([purpose, val]) => ({ purpose, ...val }));
+            
+            const x = d3.scaleBand().domain(data.map(d => d.purpose)).range([0, width]).padding(0.4);
+            const y = d3.scaleLinear().range([height, 0]);
+            const color = d3.scaleOrdinal().domain(priorities).range(d3.schemeTableau10);
+
+            const yAxis = svg.append("g").attr("class", "axis-label");
+            const xAxis = svg.append("g")
+                .attr("class", "axis-label")
+                .attr("transform", `translate(0,${height})`)
+                .call(d3.axisBottom(x));
+
+            const yLabel = svg.append("text")
+                .attr("class", "chart-title-label")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -margin.left + 20)
+                .attr("x", -height / 2)
+                .attr("text-anchor", "middle");
+
+            svg.append("text")
+                .attr("class", "chart-title-label")
+                .attr("x", width / 2)
+                .attr("y", height + margin.bottom - 25)
+                .attr("text-anchor", "middle")
+                .text("Travel Purpose");
+
+            const legend = svg.append("g")
+                .attr("transform", `translate(${width + 30}, 10)`);
+
+            priorities.forEach((priority, i) => {
+                const legendRow = legend.append("g")
+                    .attr("transform", `translate(0, ${i * 28})`);
+
+                legendRow.append("rect")
+                    .attr("width", 14).attr("height", 14).attr("rx", 3).attr("fill", color(priority));
+
+                legendRow.append("text")
+                    .attr("x", 24).attr("y", 12)
+                    .attr("text-anchor", "start")
+                    .style("font-size", "13px").style("font-weight", "500")
+                    .style("fill", "#475569").text(priority);
+            });
+
+            function draw(metric) {
+                const isComplexity = metric === "avgComplexity";
+                yLabel.transition().duration(700)
+                    // Updated the Y-axis label text
+                    .text(isComplexity ? "Planning Complexity" : "Avg Preparation Days");
+
+                y.domain([0, d3.max(data, d => d[metric])]).nice();
+                yAxis.transition().duration(700).call(d3.axisLeft(y).ticks(6));
+
+                const stack = d3.stack()
+                    .keys(priorities)
+                    .value((d, k) => d.dist[k] * d[metric])(data);
+
+                const layers = svg.selectAll(".layer").data(stack, d => d.key);
+                const enter = layers.enter().append("g").attr("class", "layer").attr("fill", d => color(d.key));
+                
+                const rects = enter.merge(layers).selectAll("rect").data(d => d);
+                
+                rects.enter().append("rect")
+                    .attr("x", d => x(d.data.purpose))
+                    .attr("width", x.bandwidth())
+                    .attr("y", height).attr("height", 0)
+                    .merge(rects)
+                    .transition().duration(700)
+                    .attr("y", d => y(d[1]))
+                    .attr("height", d => y(d[0]) - y(d[1]));
+
+                svg.selectAll("rect").on("mouseover", function(e, d) {
+                    const intentName = d3.select(this.parentNode).datum().key;
+                    const percentage = (d.data.dist[intentName] * 100).toFixed(0);
+
+                    d3.select(this).style("opacity", 0.85);
+                    
+                    tooltip.style("visibility", "visible")
+                        .html(`
+                            <div style="color:#94a3b8; text-transform:uppercase; font-size:10px; font-weight:700; margin-bottom:2px;">${intentName}</div>
+                            <div style="font-size:15px; font-weight:700; color:#fff;">${percentage}%</div>
+                        `);
+                }).on("mousemove", e => {
+                    tooltip.style("top", (e.pageY - 15) + "px").style("left", (e.pageX + 15) + "px");
+                }).on("mouseout", function() {
+                    d3.select(this).style("opacity", 1);
+                    tooltip.style("visibility", "hidden");
+                });
+            }
+
+            draw("avgComplexity");
+
+            d3.select("#btn-comp").on("click", function() {
+                d3.selectAll(".btn").classed("active", false);
+                d3.select(this).classed("active", true);
+                draw("avgComplexity");
+            });
+
+            d3.select("#btn-prep").on("click", function() {
+                d3.selectAll(".btn").classed("active", false);
+                d3.select(this).classed("active", true);
+                draw("avgPrep");
+            });
+        });
+    </script>
+</body>
+</html>

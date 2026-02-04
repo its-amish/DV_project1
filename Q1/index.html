@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sankey Decision Analytics - IIIT Hyderabad</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; display: flex; flex-direction: column; align-items: center; padding: 30px; }
+        h1 { color: #0f172a; margin-bottom: 5px; }
+        #chart { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); position: relative; }
+        .node rect { cursor: pointer; stroke: #fff; stroke-width: 1px; }
+        .node text { font-size: 11px; font-weight: 700; fill: #334155; pointer-events: none; text-transform: uppercase; }
+        .link { fill: none; stroke: #000; stroke-opacity: 0.15; transition: all 0.25s ease; }
+        
+        /* The "Crazy" Interactivity Classes */
+        .link.active { stroke-opacity: 0.7 !important; }
+        .link.ghost { stroke-opacity: 0.03 !important; }
+
+        .tooltip { position: absolute; padding: 12px; background: rgba(15, 23, 42, 0.95); color: #fff; border-radius: 6px; font-size: 12px; visibility: hidden; pointer-events: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <h1>Travel Decision Flow Analysis</h1>
+    <p>Hover over nodes to isolate paths | Tooltips show flow percentages</p>
+    
+    <div id="chart">
+        <div id="tooltip" class="tooltip"></div>
+    </div>
+
+    <script>
+        const margin = {top: 20, right: 180, bottom: 20, left: 180};
+        const width = 1100 - margin.left - margin.right;
+        const height = 650 - margin.top - margin.bottom;
+
+        const svg = d3.select("#chart").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const color = d3.scaleOrdinal(d3.schemeTableau10);
+        const tooltip = d3.select("#tooltip");
+
+        d3.json("data2.json").then(rawData => {
+            // 1. DYNAMIC DATA MAPPING
+            const nodesSet = new Set();
+            const linkMap = new Map();
+
+            rawData.forEach(d => {
+                nodesSet.add(d.purpose); nodesSet.add(d.transport);
+                nodesSet.add(d.scope); nodesSet.add(d.budget);
+
+                const flow = [`${d.purpose}|${d.transport}`, `${d.transport}|${d.scope}`, `${d.scope}|${d.budget}`];
+                flow.forEach(k => linkMap.set(k, (linkMap.get(k) || 0) + 1));
+            });
+
+            const nodes = Array.from(nodesSet).map(name => ({ name }));
+            const links = Array.from(linkMap).map(([k, v]) => {
+                const [s, t] = k.split("|");
+                return { source: nodes.findIndex(n => n.name === s), target: nodes.findIndex(n => n.name === t), value: v };
+            });
+
+            const sankey = d3.sankey().nodeWidth(35).nodePadding(40).size([width, height]);
+            const graph = sankey({ nodes: nodes.map(d => Object.assign({}, d)), links: links.map(d => Object.assign({}, d)) });
+
+            // 2. DRAW LINKS
+            const link = svg.append("g").selectAll(".link")
+                .data(graph.links).join("path")
+                .attr("class", "link")
+                .attr("d", d3.sankeyLinkHorizontal())
+                .attr("stroke", d => color(d.source.name))
+                .attr("stroke-width", d => Math.max(1, d.width))
+                .on("mouseover", (e, d) => {
+                    // % CALCULATIONS
+                    const outPercent = ((d.value / d.source.value) * 100).toFixed(1);
+                    const inPercent = ((d.value / d.target.value) * 100).toFixed(1);
+                    
+                    tooltip.style("visibility", "visible")
+                        .html(`<strong>Connection:</strong> ${d.source.name} → ${d.target.name}<br>
+                               <strong>Volume:</strong> ${d.value} prompts<br>
+                               <hr style="border:0; border-top:1px solid #444; margin:5px 0;">
+                               • ${outPercent}% of all ${d.source.name} choices<br>
+                               • ${inPercent}% of all ${d.target.name} choices`);
+                })
+                .on("mousemove", e => tooltip.style("top", (e.pageY-10)+"px").style("left", (e.pageX+10)+"px"))
+                .on("mouseout", () => tooltip.style("visibility", "hidden"));
+
+            // 3. DRAW NODES + "GHOSTING" INTERACTION
+            const node = svg.append("g").selectAll(".node")
+                .data(graph.nodes).join("g")
+                .attr("class", "node")
+                .on("mouseover", (event, d) => {
+                    // Full Path Isolation Logic
+                    const associatedLinks = new Set();
+                    const traverse = (n, direction) => {
+                        n[direction].forEach(l => {
+                            associatedLinks.add(l);
+                            traverse(direction === "sourceLinks" ? l.target : l.source, direction);
+                        });
+                    };
+                    traverse(d, "sourceLinks"); traverse(d, "targetLinks");
+
+                    link.classed("ghost", l => !associatedLinks.has(l));
+                    link.classed("active", l => associatedLinks.has(l));
+                })
+                .on("mouseout", () => {
+                    link.classed("ghost", false);
+                    link.classed("active", false);
+                });
+
+            node.append("rect")
+                .attr("x", d => d.x0).attr("y", d => d.y0)
+                .attr("height", d => d.y1 - d.y0).attr("width", d => d.x1 - d.x0)
+                .attr("fill", d => color(d.name))
+                .attr("rx", 3);
+
+            node.append("text")
+                .attr("x", d => d.x0 < width/2 ? d.x1+12 : d.x0-12)
+                .attr("y", d => (d.y1 + d.y0)/2)
+                .attr("dy", "0.35em")
+                .attr("text-anchor", d => d.x0 < width/2 ? "start" : "end")
+                .text(d => d.name);
+        });
+    </script>
+</body>
+</html>

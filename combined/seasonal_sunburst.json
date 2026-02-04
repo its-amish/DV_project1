@@ -1,0 +1,347 @@
+{
+  "name": "Travel Preferences",
+  "children": [
+    {
+      "name": "Summer",
+      "children": [
+        {
+          "name": "Beach",
+          "children": [
+            {
+              "name": "Adventure",
+              "value": 207
+            },
+            {
+              "name": "Leisure",
+              "value": 80
+            },
+            {
+              "name": "Cultural",
+              "value": 44
+            },
+            {
+              "name": "General",
+              "value": 62
+            }
+          ]
+        },
+        {
+          "name": "City",
+          "children": [
+            {
+              "name": "General",
+              "value": 28
+            },
+            {
+              "name": "Adventure",
+              "value": 15
+            },
+            {
+              "name": "Cultural",
+              "value": 8
+            },
+            {
+              "name": "Leisure",
+              "value": 9
+            }
+          ]
+        },
+        {
+          "name": "Other",
+          "children": [
+            {
+              "name": "General",
+              "value": 2
+            },
+            {
+              "name": "Leisure",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "Mountain",
+          "children": [
+            {
+              "name": "General",
+              "value": 13
+            },
+            {
+              "name": "Adventure",
+              "value": 9
+            },
+            {
+              "name": "Leisure",
+              "value": 3
+            },
+            {
+              "name": "Cultural",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "name": "Cultural",
+          "children": [
+            {
+              "name": "Cultural",
+              "value": 3
+            },
+            {
+              "name": "General",
+              "value": 6
+            },
+            {
+              "name": "Leisure",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Autumn",
+      "children": [
+        {
+          "name": "City",
+          "children": [
+            {
+              "name": "Leisure",
+              "value": 5
+            },
+            {
+              "name": "General",
+              "value": 23
+            },
+            {
+              "name": "Cultural",
+              "value": 6
+            },
+            {
+              "name": "Adventure",
+              "value": 9
+            }
+          ]
+        },
+        {
+          "name": "Mountain",
+          "children": [
+            {
+              "name": "General",
+              "value": 6
+            },
+            {
+              "name": "Adventure",
+              "value": 20
+            },
+            {
+              "name": "Cultural",
+              "value": 2
+            },
+            {
+              "name": "Leisure",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "Cultural",
+          "children": [
+            {
+              "name": "Leisure",
+              "value": 9
+            },
+            {
+              "name": "General",
+              "value": 2
+            },
+            {
+              "name": "Adventure",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "Beach",
+          "children": [
+            {
+              "name": "Adventure",
+              "value": 5
+            },
+            {
+              "name": "Leisure",
+              "value": 2
+            },
+            {
+              "name": "Cultural",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "Other",
+          "children": [
+            {
+              "name": "General",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spring",
+      "children": [
+        {
+          "name": "Beach",
+          "children": [
+            {
+              "name": "Adventure",
+              "value": 77
+            },
+            {
+              "name": "Leisure",
+              "value": 35
+            },
+            {
+              "name": "General",
+              "value": 13
+            },
+            {
+              "name": "Cultural",
+              "value": 12
+            }
+          ]
+        },
+        {
+          "name": "Mountain",
+          "children": [
+            {
+              "name": "Adventure",
+              "value": 39
+            },
+            {
+              "name": "Leisure",
+              "value": 24
+            },
+            {
+              "name": "Cultural",
+              "value": 7
+            },
+            {
+              "name": "General",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "name": "City",
+          "children": [
+            {
+              "name": "General",
+              "value": 41
+            },
+            {
+              "name": "Cultural",
+              "value": 5
+            },
+            {
+              "name": "Adventure",
+              "value": 6
+            },
+            {
+              "name": "Leisure",
+              "value": 11
+            }
+          ]
+        },
+        {
+          "name": "Cultural",
+          "children": [
+            {
+              "name": "Cultural",
+              "value": 2
+            },
+            {
+              "name": "Adventure",
+              "value": 4
+            },
+            {
+              "name": "Leisure",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Winter",
+      "children": [
+        {
+          "name": "Mountain",
+          "children": [
+            {
+              "name": "Adventure",
+              "value": 6
+            },
+            {
+              "name": "General",
+              "value": 2
+            },
+            {
+              "name": "Leisure",
+              "value": 7
+            },
+            {
+              "name": "Cultural",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "name": "Beach",
+          "children": [
+            {
+              "name": "Cultural",
+              "value": 5
+            },
+            {
+              "name": "Adventure",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "name": "Cultural",
+          "children": [
+            {
+              "name": "Leisure",
+              "value": 2
+            },
+            {
+              "name": "General",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "City",
+          "children": [
+            {
+              "name": "General",
+              "value": 9
+            },
+            {
+              "name": "Leisure",
+              "value": 1
+            },
+            {
+              "name": "Cultural",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,841 @@
+[
+  {
+    "iso_alpha3": "JPN",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1500.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2700.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "USA",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1417.65
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2498.88
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2840.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 4400.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CHN",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1520.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2814.29
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2750.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "DOM",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2709.09
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "IDN",
+    "age_groups": [
+      {
+        "age_group": "50+",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 1640.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "GBR",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 3800.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 1600.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CAN",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1485.71
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2428.57
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CHE",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2900.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "MEX",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2675.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 3500.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ESP",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2500.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "IND",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1142.86
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2266.67
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "FJI",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "LUX",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BGR",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "SGP",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "MYS",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BHR",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "DEU",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 1600.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "AUS",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 950.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 1700.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 1400.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CHL",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BGD",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 1200.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ISR",
+    "age_groups": [
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 1000.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "AUT",
+    "age_groups": [
+      {
+        "age_group": "50+",
+        "avg_spend": 1400.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "PHL",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1500.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2900.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "NAM",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ARE",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2600.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 1400.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "FRA",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2360.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 2900.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ITA",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2900.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "IRL",
+    "age_groups": [
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "GEO",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 3500.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "NZL",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "PRI",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "THA",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "PRT",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "GRC",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CUB",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 3500.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ROU",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "JOR",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BWA",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "EGY",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "26-35",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ZMB",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "TCA",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "COL",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "JEY",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "DNK",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "MAR",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "GIN",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BLZ",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "HKG",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "REU",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "KEN",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 1400.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CRI",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "UKR",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 2000.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BRA",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "36-50",
+        "avg_spend": 3200.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ARG",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "KHM",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "SWE",
+    "age_groups": [
+      {
+        "age_group": "50+",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "BEL",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "PAK",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ISL",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CYP",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ATG",
+    "age_groups": [
+      {
+        "age_group": "18-25",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "GRD",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 2000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "HRV",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "CPV",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 800.0
+      },
+      {
+        "age_group": "50+",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "ATA",
+    "age_groups": [
+      {
+        "age_group": "36-50",
+        "avg_spend": 5000.0
+      }
+    ]
+  },
+  {
+    "iso_alpha3": "JAM",
+    "age_groups": [
+      {
+        "age_group": "26-35",
+        "avg_spend": 2000.0
+      }
+    ]
+  }
+]

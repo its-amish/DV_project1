@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DV Project 1 — Combined Dashboard (Q1–Q4)</title>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel2: rgba(255, 255, 255, 0.08);
+      --text: #e5e7eb;
+      --muted: rgba(229, 231, 235, 0.74);
+      --border: rgba(148, 163, 184, 0.18);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --accent: #7c3aed;
+      --accent2: #06b6d4;
+      --good: #22c55e;
+      --warn: #f59e0b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(124, 58, 237, 0.28), transparent 55%),
+        radial-gradient(1000px 700px at 90% 20%, rgba(6, 182, 212, 0.22), transparent 55%),
+        radial-gradient(900px 600px at 50% 90%, rgba(34, 197, 94, 0.16), transparent 55%),
+        var(--bg);
+      line-height: 1.45;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 18, 32, 0.68);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 220px;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand .subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 13px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(148, 163, 184, 0.32);
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 26px 18px 70px;
+    }
+
+    .hero {
+      padding: 22px 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: 0.2px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    section.card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 16px 18px 0;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(229, 231, 235, 0.9);
+    }
+
+    .card-header h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+
+    .card-header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 92ch;
+    }
+
+    .card-body {
+      padding: 16px 18px 18px;
+    }
+
+    .viz-panel {
+      position: relative;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 16px;
+      background: rgba(2, 6, 23, 0.35);
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .viz-panel svg { width: 100%; height: auto; display: block; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .explain {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.28);
+      border-radius: 14px;
+      color: rgba(229, 231, 235, 0.86);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .explain ul { margin: 8px 0 0 18px; }
+    .explain li { margin: 5px 0; }
+
+    .tooltip {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 120ms ease, transform 120ms ease;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.26);
+      background: rgba(2, 6, 23, 0.92);
+      color: rgba(229, 231, 235, 0.95);
+      font-size: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      max-width: 320px;
+      z-index: 5;
+    }
+
+    .tooltip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    button.btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      color: rgba(229,231,235,0.92);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+    }
+
+    button.btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(148, 163, 184, 0.32);
+      transform: translateY(-1px);
+    }
+
+    button.btn.active {
+      background: rgba(124, 58, 237, 0.22);
+      border-color: rgba(124, 58, 237, 0.55);
+    }
+
+    .small-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="title">DV Project 1 — Combined Dashboard</div>
+        <div class="subtitle">Scroll through Q1–Q4 (single page)</div>
+      </div>
+      <nav class="nav">
+        <a href="#q1">Q1 Sankey</a>
+        <a href="#q2">Q2 Map + Radial</a>
+        <a href="#q3">Q3 Sunburst</a>
+        <a href="#q4">Q4 Stacked Bars</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>Travel Intent Analytics — One Scrollable Website</h1>
+      <p>
+        This page combines all four assignment questions into one cohesive narrative. Each section includes the visualization
+        and a short explanation of what it answers and how to read it.
+      </p>
+      <div class="small-note">Tip: open via a local server (Live Server / <code>python -m http.server</code>) so the JSON files load correctly.</div>
+    </div>
+
+    <div class="grid">
+      <!-- Q1 -->
+      <section class="card" id="q1">
+        <div class="card-header">
+          <div class="kicker"><span class="pill">Q1</span> Sankey / Flow visualization</div>
+          <h2>Travel Decision Flow: Purpose → Transport → Scope → Budget</h2>
+          <p>Shows the most frequent end-to-end decision paths, and where users converge in the funnel.</p>
+        </div>
+        <div class="card-body">
+          <div class="viz-panel" id="q1-panel">
+            <div class="tooltip" id="q1-tooltip"></div>
+            <div id="q1-chart"></div>
+          </div>
+          <div class="explain">
+            <strong>How to read:</strong>
+            <ul>
+              <li><strong>Node height</strong> = total volume for that category.</li>
+              <li><strong>Link thickness</strong> = number of prompts flowing from source → target.</li>
+              <li>Hover a <strong>node</strong> to isolate all connected upstream/downstream paths; hover a <strong>link</strong> for % shares.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Q2 -->
+      <section class="card" id="q2">
+        <div class="card-header">
+          <div class="kicker"><span class="pill">Q2</span> Linked views</div>
+          <h2>Global Travel Intent (Choropleth) + Spending Share by Age (Radial)</h2>
+          <p>Click a country to see how average spend is distributed across age groups.</p>
+        </div>
+        <div class="card-body">
+          <div class="two-col">
+            <div class="viz-panel">
+              <svg id="q2-map" viewBox="0 0 800 450" aria-label="Travel intent choropleth"></svg>
+            </div>
+            <div class="viz-panel">
+              <div id="q2-radial-title" style="font-weight:700; margin:2px 2px 10px; color: rgba(229,231,235,0.92);">
+                Click a country to view spending by age group
+              </div>
+              <svg id="q2-radial" viewBox="0 0 420 420" aria-label="Spending by age radial"></svg>
+            </div>
+          </div>
+          <div class="explain">
+            <strong>How to read:</strong>
+            <ul>
+              <li>Map color (Blues) encodes <strong>travel intent count</strong>; <strong>white</strong> means no linked spend data.</li>
+              <li>Radial slice <strong>angle</strong> encodes the <strong>share of spend</strong> for an age group (adds to 100%).</li>
+              <li>Use it to answer: “Where is intent high?” and “Which age segment drives spending in a selected country?”</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Q3 -->
+      <section class="card" id="q3">
+        <div class="card-header">
+          <div class="kicker"><span class="pill">Q3</span> Hierarchical / Zoomable</div>
+          <h2>Season → Place Type → Activity Preference (Zoomable Sunburst)</h2>
+          <p>Explore seasonal patterns and drill down into place and activity preferences.</p>
+        </div>
+        <div class="card-body">
+          <div class="viz-panel" id="q3-panel">
+            <div class="tooltip" id="q3-tooltip"></div>
+            <div class="two-col" style="grid-template-columns: 1.25fr 0.75fr;">
+              <div id="q3-chart"></div>
+              <div id="q3-legend"></div>
+            </div>
+          </div>
+          <div class="explain">
+            <strong>How to read:</strong>
+            <ul>
+              <li><strong>Ring level</strong> encodes hierarchy: inner=Season, middle=Place type, outer=Activity preference.</li>
+              <li><strong>Arc length</strong> encodes count; hover for % of total and % of parent.</li>
+              <li>Click a segment to <strong>zoom</strong>; click the center to zoom out.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Q4 -->
+      <section class="card" id="q4">
+        <div class="card-header">
+          <div class="kicker"><span class="pill">Q4</span> Comparison + Composition</div>
+          <h2>Purpose vs Planning Effort (Complexity / Prep Days) + Priority Composition</h2>
+          <p>Toggle the metric and see how priorities (Activities/Accommodation/Transport/Dining) contribute per purpose.</p>
+        </div>
+        <div class="card-body">
+          <div class="controls">
+            <button class="btn active" id="q4-btn-comp">Planning Complexity</button>
+            <button class="btn" id="q4-btn-prep">Preparation Days</button>
+          </div>
+          <div class="viz-panel" id="q4-panel">
+            <div class="tooltip" id="q4-tooltip"></div>
+            <div id="q4-chart"></div>
+          </div>
+          <div class="explain">
+            <strong>Metric meaning:</strong>
+            <ul>
+              <li><strong>Planning complexity</strong> increases with more entities/constraints in the prompt (duration, group size, diet, proximity, budget, location…).</li>
+              <li><strong>Prep days</strong> is the time between writing the prompt and the intended trip date.</li>
+              <li>Stack colors show the <strong>priority distribution</strong> for each purpose; hover a segment for the %.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      Built with D3.js • Data files are loaded from this folder (<code>combined/</code>).
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

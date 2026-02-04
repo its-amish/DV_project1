@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seasonal Partition of Travel Preferences</title>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f9fafb;
+      color: #111;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 14px 0 6px;
+      font-weight: 600;
+    }
+
+    #subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 10px;
+    }
+
+    #hint {
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    #viz {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      height: calc(100vh - 120px);
+      padding: 12px;
+    }
+
+    #chart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #legend {
+      width: min(320px, 92vw);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    }
+
+    .legend-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .legend-section {
+      margin-bottom: 12px;
+    }
+
+    .legend-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .legend-section h3 {
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0;
+      font-size: 13px;
+      color: #0f172a;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
+      flex: 0 0 auto;
+    }
+
+    .legend-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.35;
+    }
+
+    svg {
+      width: min(88vmin, 920px);
+      height: min(88vmin, 920px);
+    }
+
+    .tooltip {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 8px 10px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      max-width: 260px;
+    }
+
+    .tooltip .path {
+      color: #334155;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .tooltip .meta {
+      color: #475569;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Seasonal Partition of Travel Preferences</h1>
+  <div id="subtitle">
+    Season → Place Type → Activity Preference
+  </div>
+  <div id="hint">Hover to highlight and see details. Click a segment to zoom; click the center to zoom out.</div>
+
+  <div id="viz">
+    <div id="chart"></div>
+    <div id="legend"></div>
+  </div>
+  <div class="tooltip" id="tooltip"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

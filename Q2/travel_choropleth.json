@@ -1,0 +1,750 @@
+{
+  "metadata": {
+    "question": "Geographic Willingness (Q4)",
+    "method": "Country extraction conditioned on travel-intent phrases",
+    "unit": "number_of_prompts",
+    "source": "ShareGPT Travel Prompts Dataset"
+  },
+  "data": [
+    {
+      "country": "Japan",
+      "iso_alpha3": "JPN",
+      "travel_intent_count": 83
+    },
+    {
+      "country": "United States",
+      "iso_alpha3": "USA",
+      "travel_intent_count": 573
+    },
+    {
+      "country": "Norway",
+      "iso_alpha3": "NOR",
+      "travel_intent_count": 16
+    },
+    {
+      "country": "Fiji",
+      "iso_alpha3": "FJI",
+      "travel_intent_count": 6
+    },
+    {
+      "country": "Thailand",
+      "iso_alpha3": "THA",
+      "travel_intent_count": 68
+    },
+    {
+      "country": "China",
+      "iso_alpha3": "CHN",
+      "travel_intent_count": 89
+    },
+    {
+      "country": "Sweden",
+      "iso_alpha3": "SWE",
+      "travel_intent_count": 14
+    },
+    {
+      "country": "Netherlands",
+      "iso_alpha3": "NLD",
+      "travel_intent_count": 30
+    },
+    {
+      "country": "Germany",
+      "iso_alpha3": "DEU",
+      "travel_intent_count": 37
+    },
+    {
+      "country": "Luxembourg",
+      "iso_alpha3": "LUX",
+      "travel_intent_count": 25
+    },
+    {
+      "country": "Portugal",
+      "iso_alpha3": "PRT",
+      "travel_intent_count": 30
+    },
+    {
+      "country": "Switzerland",
+      "iso_alpha3": "CHE",
+      "travel_intent_count": 35
+    },
+    {
+      "country": "Denmark",
+      "iso_alpha3": "DNK",
+      "travel_intent_count": 16
+    },
+    {
+      "country": "Austria",
+      "iso_alpha3": "AUT",
+      "travel_intent_count": 19
+    },
+    {
+      "country": "Belgium",
+      "iso_alpha3": "BEL",
+      "travel_intent_count": 19
+    },
+    {
+      "country": "United Kingdom",
+      "iso_alpha3": "GBR",
+      "travel_intent_count": 103
+    },
+    {
+      "country": "Finland",
+      "iso_alpha3": "FIN",
+      "travel_intent_count": 7
+    },
+    {
+      "country": "Ireland",
+      "iso_alpha3": "IRL",
+      "travel_intent_count": 26
+    },
+    {
+      "country": "Dominican Republic",
+      "iso_alpha3": "DOM",
+      "travel_intent_count": 13
+    },
+    {
+      "country": "Argentina",
+      "iso_alpha3": "ARG",
+      "travel_intent_count": 6
+    },
+    {
+      "country": "Indonesia",
+      "iso_alpha3": "IDN",
+      "travel_intent_count": 31
+    },
+    {
+      "country": "Singapore",
+      "iso_alpha3": "SGP",
+      "travel_intent_count": 58
+    },
+    {
+      "country": "Canada",
+      "iso_alpha3": "CAN",
+      "travel_intent_count": 84
+    },
+    {
+      "country": "Georgia",
+      "iso_alpha3": "GEO",
+      "travel_intent_count": 10
+    },
+    {
+      "country": "Brazil",
+      "iso_alpha3": "BRA",
+      "travel_intent_count": 22
+    },
+    {
+      "country": "Spain",
+      "iso_alpha3": "ESP",
+      "travel_intent_count": 63
+    },
+    {
+      "country": "Italy",
+      "iso_alpha3": "ITA",
+      "travel_intent_count": 71
+    },
+    {
+      "country": "India",
+      "iso_alpha3": "IND",
+      "travel_intent_count": 69
+    },
+    {
+      "country": "Croatia",
+      "iso_alpha3": "HRV",
+      "travel_intent_count": 10
+    },
+    {
+      "country": "Greece",
+      "iso_alpha3": "GRC",
+      "travel_intent_count": 39
+    },
+    {
+      "country": "Mexico",
+      "iso_alpha3": "MEX",
+      "travel_intent_count": 64
+    },
+    {
+      "country": "Belize",
+      "iso_alpha3": "BLZ",
+      "travel_intent_count": 5
+    },
+    {
+      "country": "Costa Rica",
+      "iso_alpha3": "CRI",
+      "travel_intent_count": 18
+    },
+    {
+      "country": "Jersey",
+      "iso_alpha3": "JEY",
+      "travel_intent_count": 5
+    },
+    {
+      "country": "Libya",
+      "iso_alpha3": "LBY",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Israel",
+      "iso_alpha3": "ISR",
+      "travel_intent_count": 13
+    },
+    {
+      "country": "United Arab Emirates",
+      "iso_alpha3": "ARE",
+      "travel_intent_count": 19
+    },
+    {
+      "country": "New Zealand",
+      "iso_alpha3": "NZL",
+      "travel_intent_count": 22
+    },
+    {
+      "country": "Nepal",
+      "iso_alpha3": "NPL",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Jordan",
+      "iso_alpha3": "JOR",
+      "travel_intent_count": 14
+    },
+    {
+      "country": "Poland",
+      "iso_alpha3": "POL",
+      "travel_intent_count": 10
+    },
+    {
+      "country": "Romania",
+      "iso_alpha3": "ROU",
+      "travel_intent_count": 6
+    },
+    {
+      "country": "Estonia",
+      "iso_alpha3": "EST",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Bulgaria",
+      "iso_alpha3": "BGR",
+      "travel_intent_count": 6
+    },
+    {
+      "country": "Lithuania",
+      "iso_alpha3": "LTU",
+      "travel_intent_count": 9
+    },
+    {
+      "country": "Hungary",
+      "iso_alpha3": "HUN",
+      "travel_intent_count": 11
+    },
+    {
+      "country": "Cyprus",
+      "iso_alpha3": "CYP",
+      "travel_intent_count": 8
+    },
+    {
+      "country": "Chad",
+      "iso_alpha3": "TCD",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Malaysia",
+      "iso_alpha3": "MYS",
+      "travel_intent_count": 15
+    },
+    {
+      "country": "Myanmar",
+      "iso_alpha3": "MMR",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Cambodia",
+      "iso_alpha3": "KHM",
+      "travel_intent_count": 11
+    },
+    {
+      "country": "Colombia",
+      "iso_alpha3": "COL",
+      "travel_intent_count": 13
+    },
+    {
+      "country": "Oman",
+      "iso_alpha3": "OMN",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Qatar",
+      "iso_alpha3": "QAT",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Bahrain",
+      "iso_alpha3": "BHR",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Peru",
+      "iso_alpha3": "PER",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Pakistan",
+      "iso_alpha3": "PAK",
+      "travel_intent_count": 5
+    },
+    {
+      "country": "Australia",
+      "iso_alpha3": "AUS",
+      "travel_intent_count": 46
+    },
+    {
+      "country": "Bangladesh",
+      "iso_alpha3": "BGD",
+      "travel_intent_count": 9
+    },
+    {
+      "country": "Chile",
+      "iso_alpha3": "CHL",
+      "travel_intent_count": 21
+    },
+    {
+      "country": "Northern Mariana Islands",
+      "iso_alpha3": "MNP",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Ukraine",
+      "iso_alpha3": "UKR",
+      "travel_intent_count": 16
+    },
+    {
+      "country": "France",
+      "iso_alpha3": "FRA",
+      "travel_intent_count": 75
+    },
+    {
+      "country": "Philippines",
+      "iso_alpha3": "PHL",
+      "travel_intent_count": 12
+    },
+    {
+      "country": "Hong Kong",
+      "iso_alpha3": "HKG",
+      "travel_intent_count": 16
+    },
+    {
+      "country": "Namibia",
+      "iso_alpha3": "NAM",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Montserrat",
+      "iso_alpha3": "MSR",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "South Africa",
+      "iso_alpha3": "ZAF",
+      "travel_intent_count": 20
+    },
+    {
+      "country": "Slovenia",
+      "iso_alpha3": "SVN",
+      "travel_intent_count": 6
+    },
+    {
+      "country": "Iceland",
+      "iso_alpha3": "ISL",
+      "travel_intent_count": 10
+    },
+    {
+      "country": "Honduras",
+      "iso_alpha3": "HND",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Puerto Rico",
+      "iso_alpha3": "PRI",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Ethiopia",
+      "iso_alpha3": "ETH",
+      "travel_intent_count": 7
+    },
+    {
+      "country": "Greenland",
+      "iso_alpha3": "GRL",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Ecuador",
+      "iso_alpha3": "ECU",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Panama",
+      "iso_alpha3": "PAN",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Madagascar",
+      "iso_alpha3": "MDG",
+      "travel_intent_count": 7
+    },
+    {
+      "country": "Cuba",
+      "iso_alpha3": "CUB",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Serbia",
+      "iso_alpha3": "SRB",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "T\u00fcrkiye",
+      "iso_alpha3": "TUR",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Botswana",
+      "iso_alpha3": "BWA",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Sudan",
+      "iso_alpha3": "SDN",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Nigeria",
+      "iso_alpha3": "NGA",
+      "travel_intent_count": 6
+    },
+    {
+      "country": "Egypt",
+      "iso_alpha3": "EGY",
+      "travel_intent_count": 15
+    },
+    {
+      "country": "Zambia",
+      "iso_alpha3": "ZMB",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Turks and Caicos Islands",
+      "iso_alpha3": "TCA",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Albania",
+      "iso_alpha3": "ALB",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Malta",
+      "iso_alpha3": "MLT",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "North Macedonia",
+      "iso_alpha3": "MKD",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Montenegro",
+      "iso_alpha3": "MNE",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Tonga",
+      "iso_alpha3": "TON",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Algeria",
+      "iso_alpha3": "DZA",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Ghana",
+      "iso_alpha3": "GHA",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Afghanistan",
+      "iso_alpha3": "AFG",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Guatemala",
+      "iso_alpha3": "GTM",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "El Salvador",
+      "iso_alpha3": "SLV",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Maldives",
+      "iso_alpha3": "MDV",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Morocco",
+      "iso_alpha3": "MAR",
+      "travel_intent_count": 9
+    },
+    {
+      "country": "Nicaragua",
+      "iso_alpha3": "NIC",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Kenya",
+      "iso_alpha3": "KEN",
+      "travel_intent_count": 7
+    },
+    {
+      "country": "Senegal",
+      "iso_alpha3": "SEN",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Tunisia",
+      "iso_alpha3": "TUN",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Guinea",
+      "iso_alpha3": "GIN",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Papua New Guinea",
+      "iso_alpha3": "PNG",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Palau",
+      "iso_alpha3": "PLW",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Iraq",
+      "iso_alpha3": "IRQ",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "R\u00e9union",
+      "iso_alpha3": "REU",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Antarctica",
+      "iso_alpha3": "ATA",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Uganda",
+      "iso_alpha3": "UGA",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Central African Republic",
+      "iso_alpha3": "CAF",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Armenia",
+      "iso_alpha3": "ARM",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Burundi",
+      "iso_alpha3": "BDI",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Barbados",
+      "iso_alpha3": "BRB",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Benin",
+      "iso_alpha3": "BEN",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Azerbaijan",
+      "iso_alpha3": "AZE",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Cameroon",
+      "iso_alpha3": "CMR",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Bahamas",
+      "iso_alpha3": "BHS",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Bhutan",
+      "iso_alpha3": "BTN",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Burkina Faso",
+      "iso_alpha3": "BFA",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Angola",
+      "iso_alpha3": "AGO",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Comoros",
+      "iso_alpha3": "COM",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Belarus",
+      "iso_alpha3": "BLR",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Liberia",
+      "iso_alpha3": "LBR",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Isle of Man",
+      "iso_alpha3": "IMN",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Macao",
+      "iso_alpha3": "MAC",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Yemen",
+      "iso_alpha3": "YEM",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Congo",
+      "iso_alpha3": "COG",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Seychelles",
+      "iso_alpha3": "SYC",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Guadeloupe",
+      "iso_alpha3": "GLP",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "French Guiana",
+      "iso_alpha3": "GUF",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Gabon",
+      "iso_alpha3": "GAB",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Togo",
+      "iso_alpha3": "TGO",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Vanuatu",
+      "iso_alpha3": "VUT",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Haiti",
+      "iso_alpha3": "HTI",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Djibouti",
+      "iso_alpha3": "DJI",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "C\u00f4te d'Ivoire",
+      "iso_alpha3": "CIV",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Martinique",
+      "iso_alpha3": "MTQ",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Saudi Arabia",
+      "iso_alpha3": "SAU",
+      "travel_intent_count": 3
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "iso_alpha3": "ATG",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Dominica",
+      "iso_alpha3": "DMA",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "iso_alpha3": "VCT",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Saint Lucia",
+      "iso_alpha3": "LCA",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Grenada",
+      "iso_alpha3": "GRD",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Jamaica",
+      "iso_alpha3": "JAM",
+      "travel_intent_count": 5
+    },
+    {
+      "country": "Sri Lanka",
+      "iso_alpha3": "LKA",
+      "travel_intent_count": 2
+    },
+    {
+      "country": "Cabo Verde",
+      "iso_alpha3": "CPV",
+      "travel_intent_count": 4
+    },
+    {
+      "country": "Slovakia",
+      "iso_alpha3": "SVK",
+      "travel_intent_count": 1
+    },
+    {
+      "country": "Andorra",
+      "iso_alpha3": "AND",
+      "travel_intent_count": 1
+    }
+  ]
+}
